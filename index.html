@@ -7,27 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculadora"></div>
-    <h1>Calculadora</h1>
+    <div class="calculadora">
+        <h1>Calculadora</h1>
     
-    <form method="POST">
-        <input type="number" step="any" name="num1" placeholder="Número 1" required>
-        <input type="number" step="any" name="num2" placeholder="Número 2" required>
+        <form method="POST">
+            <input type="number" step="any" name="num1" placeholder="Número 1" required>
+            <input type="number" step="any" name="num2" placeholder="Número 2" required>
 
-        <select name="operacao">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">×</option>
-            <option value="/">÷</option>
-        </select>
+            <select name="operacao">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
 
-        <button type="submit">Calcular</button>
-    </form>
+            <button type="submit">Calcular</button>
+        </form>
 
-    <h2>Resultado: {{ resultado }}</h2>
-</div>
-
+        <h2>Resultado: {{ resultado }}</h2>
+    </div>
 </body>
-</html>
-</body>
-</html>
