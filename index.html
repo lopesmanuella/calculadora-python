@@ -2,28 +2,79 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <div class="calculadora">
-        <h1>Calculadora</h1>
+
+<div class="calc">
+
     
-        <form method="POST">
-            <input type="number" step="any" name="num1" placeholder="Número 1" required>
-            <input type="number" step="any" name="num2" placeholder="Número 2" required>
-
-            <select name="operacao">
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="*">*</option>
-                <option value="/">/</option>
-            </select>
-
-            <button type="submit">Calcular</button>
-        </form>
-
-        <h2>Resultado: {{ resultado }}</h2>
+    <div class="display">
+      
     </div>
+
+  
+    <form method="POST" class="grid">
+
+        <input type="hidden" name="num1" id="num1">
+        <input type="hidden" name="num2" id="num2">
+        <input type="hidden" name="operacao" id="operacao">
+
+        <button type="button" onclick="add('7')">7</button>
+        <button type="button" onclick="add('8')">8</button>
+        <button type="button" onclick="add('9')">9</button>
+        <button type="button" onclick="op('/')">÷</button>
+
+        <button type="button" onclick="add('4')">4</button>
+        <button type="button" onclick="add('5')">5</button>
+        <button type="button" onclick="add('6')">6</button>
+        <button type="button" onclick="op('*')">×</button>
+
+        <button type="button" onclick="add('1')">1</button>
+        <button type="button" onclick="add('2')">2</button>
+        <button type="button" onclick="add('3')">3</button>
+        <button type="button" onclick="op('-')">−</button>
+
+        <button type="button" onclick="clearAll()">C</button>
+        <button type="button" onclick="add('0')">0</button>
+        <button type="submit">=</button>
+        <button type="button" onclick="op('+')">+</button>
+
+    </form>
+
+</div>
+
+<script>
+let atual = "";
+let n1 = "";
+let operador = "";
+
+function add(v) {
+    atual += v;
+    document.querySelector(".display").innerText = atual;
+}
+
+function op(o) {
+    n1 = atual;
+    operador = o;
+    atual = "";
+}
+
+document.querySelector("form").addEventListener("submit", () => {
+    document.getElementById("num1").value = n1;
+    document.getElementById("num2").value = atual;
+    document.getElementById("operacao").value = operador;
+});
+
+function clearAll() {
+    atual = "";
+    n1 = "";
+    operador = "";
+    document.querySelector(".display").innerText = "0";
+}
+</script>
+
 </body>
+</html>

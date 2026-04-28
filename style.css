@@ -1,33 +1,61 @@
 body {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    font-family: Arial;
+    margin: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background: #111827;
+    font-family: Arial;
 }
 
-.calculator {
-    background: white;
-    padding: 30px;
+.calc {
+    width: 320px;
+    background: #1f2937;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    text-align: center;
+    padding: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
 
-input, select, button {
-    margin: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
+/* TELA */
+.display {
+    background: black;
+    color: #00ff88;
+    font-size: 40px;
+    text-align: right;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    min-height: 50px;
+    overflow: hidden;
+}
+
+/* BOTÕES EM GRADE */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
 button {
-    background: #667eea;
-    color: white;
+    padding: 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
+    background: #374151;
+    color: white;
+    transition: 0.2s;
 }
 
 button:hover {
-    background: #5a67d8;
+    background: #4b5563;
+}
+
+/* botão igual */
+button[type="submit"] {
+    background: #10b981;
+}
+
+button[type="submit"]:hover {
+    background: #059669;
 }
